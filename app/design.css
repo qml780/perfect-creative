@@ -1,0 +1,321 @@
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/fonts/InstrumentSerif-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.storefront {
+  --paper: #f6f7f8;
+  --cream: #fff;
+  --ink: #101216;
+  --ash: #505660;
+  --line: #dce0e5;
+  --accent: #254ce0;
+  --accent-hover: #183ab7;
+  --accent-on-dark: #afc1ff;
+  --copper: var(--accent);
+  --surface: #eaedf1;
+  --dark-secondary: #c1c7d0;
+  --dark-line: #41454f;
+  --display: "Instrument Serif", Georgia, serif;
+  --edge: clamp(20px, 5vw, 80px);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.storefront h1, .storefront h2 {
+  font-weight: 400;
+  line-height: .94;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.storefront[lang="zh-CN"] h1, .storefront[lang="zh-CN"] h2 {
+  font-family: "Songti SC", SimSun, "Microsoft YaHei", serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -.055em;
+}
+.storefront .kicker { font-size: 12px; font-weight: 650; letter-spacing: .055em; text-transform: none }
+.storefront .site-header { background: var(--cream); color: var(--ink) }
+.storefront .nav-shell { grid-template-columns: 1fr auto 1fr; gap: 18px }
+.storefront .brand { justify-self: start }
+.storefront .wordmark { gap: 9px }
+.storefront .wordmark span { font: 400 29px/1 var(--display); letter-spacing: -.025em }
+.storefront .wordmark svg { width: 26px; height: 26px }
+.storefront .lang, .storefront .center-nav a { font-size: 13px; font-weight: 570; letter-spacing: 0; text-transform: none }
+.storefront :is(.quote-aside,.construction,.site-footer) :focus-visible { outline-color: var(--accent-on-dark) }
+.storefront .center-nav a[aria-current] { text-decoration: underline; text-underline-offset: 6px }
+.nav-quote { min-height: 44px; display: inline-grid; align-items: center; padding: 0 16px; border: 1px solid var(--ink); font-weight: 650; font-size: 12px; white-space: nowrap }
+.nav-quote:hover, .nav-quote[aria-current="page"] { background: var(--ink); color: var(--cream) }
+.storefront .button { font-size: 13px; padding-inline: 18px }
+.storefront .primary { background: var(--accent); color: var(--cream) }
+.storefront .primary:hover { background: var(--accent-hover) }
+.storefront .outline { border-color: var(--ink) }
+.storefront .outline:hover { background: var(--surface) }
+.storefront .reading-progress { background: var(--accent) }
+
+.storefront .hero {
+  background: var(--cream);
+  color: var(--ink);
+  display: grid;
+  grid-template-columns: minmax(0, 1.13fr) minmax(0, .87fr);
+  gap: clamp(38px, 7vw, 112px);
+  padding: clamp(22px, 3.3vw, 52px) max(var(--edge), calc((100vw - 1296px) / 2)) clamp(30px, 4.2vw, 62px);
+  min-height: 0;
+  align-items: center;
+}
+.storefront .hero-media {
+  grid-area: 1 / 1;
+  isolation: isolate;
+  position: relative;
+  min-height: clamp(485px, 64svh, 650px);
+  margin: 0;
+  background: radial-gradient(ellipse at 46% 30%, #fff, #f0f1f3 60%, #dfe3e8);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.storefront .hero-object {
+  inset: 0;
+  position: absolute;
+  width: auto;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+.storefront .hero-object img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 94%;
+  height: 97%;
+  object-fit: contain;
+}
+.storefront .hero-copy {
+  grid-area: 1 / 2;
+  padding: 0 0 18px;
+}
+.storefront .hero h1 {
+  font-size: clamp(78px, 9.1vw, 148px);
+  margin: 0 0 25px;
+  line-height: .84;
+  text-wrap: initial;
+}
+.storefront[lang="zh-CN"] .hero h1 {
+  font-size: clamp(65px, 7.4vw, 107px);
+  max-width: 3.35em;
+  line-height: 1.03;
+}
+.storefront .hero-description { max-width: 36ch; font-size: clamp(15px, 1.35vw, 20px); color: var(--ash) }
+.storefront .actions { gap: 15px 22px; margin-top: 28px }
+.hero-custom { display: inline-grid; place-items: center; min-height: 44px; font-size: 13px; font-weight: 650; text-decoration: underline; text-underline-offset: 5px }
+.hero-custom:hover { color: var(--accent) }
+.storefront .hero-caption {
+  bottom: 16px;
+  left: 16px;
+  right: auto;
+  gap: 20px;
+  padding: 9px 13px;
+  background: #fffffff2;
+  border: 1px solid var(--line);
+}
+.hero-caption div { display: grid; gap: 0 }
+.storefront .hero-caption span { color: var(--ash); font-size: 10px; letter-spacing: .065em }
+.hero-caption:hover { color: var(--accent) }
+
+.storefront .section { padding-block: clamp(55px, 7vw, 105px) }
+.storefront .section-heading { align-items: end; margin-bottom: 28px }
+.storefront .section-heading h2, .storefront .editorial h2, .storefront .construction h2 { font-size: clamp(49px, 6.1vw, 96px); margin-top: 0 }
+.storefront .proof-strip { background: var(--paper) }
+.storefront .proof-strip span+span { border-color: var(--line) }
+.storefront .text-link { border-color: currentColor }
+.storefront .text-link:hover { color: var(--accent) }
+.storefront .product-card { background: transparent; border: 0; overflow: hidden; padding-bottom: 15px }
+.storefront .product-card .card-media { background: var(--surface); height: clamp(240px, 33vw, 420px) }
+.storefront .card-meta { letter-spacing: .04em; text-transform: none; font-size: 11px }
+.storefront .card-title h3 { font-size: clamp(23px, 2.65vw, 38px); font-weight: 400; letter-spacing: 0 }
+.storefront[lang="zh-CN"] .card-title h3 { font-family: "Microsoft YaHei", sans-serif; font-size: clamp(16px, 2.2vw, 24px); font-weight: 620 }
+.storefront .round-link { border-color: var(--line) }
+.storefront .dots button::after { background: #a3aab5 }
+.storefront .dots button[aria-current]::after { background: var(--accent) }
+.storefront .construction { background: var(--ink); color: var(--cream) }
+.storefront .construction .kicker, .storefront .steps a[aria-current], .storefront .steps a:hover, .storefront .assembly-media figcaption span { color: var(--accent-on-dark) }
+.storefront .construction .kicker { margin-bottom: 13px }
+.storefront .steps a span, .storefront .assembly-media figcaption p { color: var(--dark-secondary) }
+.storefront .assembly-media figure { background: radial-gradient(ellipse at 50% 40%, #282f3b, #161a21 75%); border-color: var(--dark-line) }
+.storefront .editorial-photo { background: var(--surface) }
+.storefront .editorial-copy .kicker { margin-bottom: 12px }
+.storefront .wholesale-band { background: var(--surface); color: var(--ink) }
+.storefront .wholesale-band .kicker { color: var(--accent) }
+.storefront .wholesale-band p:not(.kicker) { color: var(--ash) }
+.storefront .wholesale-band .cream { background: var(--accent); color: var(--cream) }
+.storefront .wholesale-band .cream:hover { background: var(--accent-hover) }
+.storefront .site-footer { background: var(--ink); color: var(--cream) }
+.storefront .footer-top p,.storefront .footer-top div>a:not(:first-child),.storefront .footer-bottom { color: var(--dark-secondary) }
+.storefront .site-footer .footer-top a:hover { color: var(--accent-on-dark) }
+.storefront .footer-bottom { border-color: var(--dark-line); padding-bottom: 16px }
+.storefront .subpage h1 { font-size: clamp(53px, 7vw, 100px) }
+.storefront .detail-photo,.storefront .thumbs a,.storefront .logo-samples { background: var(--surface) }
+.storefront .filters .button { min-height: 46px }
+.storefront .notice { background: var(--surface); border-color: var(--accent) }
+.storefront .form-status:not([data-error]) { background: var(--surface) }
+.storefront .breadcrumb { color: var(--copper) }
+
+.storefront .quote-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 34px;
+  padding-top: clamp(24px, 4vw, 56px);
+}
+.quote-aside {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "back back" "intro product" "demo product";
+  column-gap: clamp(25px, 6vw, 95px);
+  align-items: center;
+  padding: clamp(20px, 4.2vw, 58px);
+  color: var(--cream);
+  background: var(--ink);
+}
+.storefront .quote-aside .breadcrumb { grid-area: back; color: var(--accent-on-dark); width: fit-content; margin-bottom: 10px }
+.quote-aside .page-intro { grid-area: intro; margin: 0 }
+.storefront .quote-aside :is(.kicker, .page-intro>p:not(.kicker), .quote-demo) { color: var(--dark-secondary) }
+.storefront .quote-aside h1 { font-size: clamp(50px, 6.8vw, 103px); margin: 8px 0 14px; text-wrap: initial }
+.storefront[lang="zh-CN"] .quote-aside h1 { font-size: clamp(34px, 5.1vw, 72px) }
+.quote-product {
+  grid-area: product;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 19px 12px 11px;
+  min-height: 118px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.quote-product img { width: 74px; height: 98px; object-fit: contain; mix-blend-mode: multiply; flex: none }
+.quote-product div { display: grid; gap: 2px }
+.quote-product strong { font-size: 17px }
+.quote-product span, .quote-demo { color: var(--ash); font-size: 13px }
+.quote-demo { grid-area: demo; margin-top: 17px }
+.storefront .quote-form { width: min(100%, 940px); margin-inline: auto; padding: clamp(18px, 4vw, 50px); gap: 16px 18px; border-color: var(--line) }
+.storefront .quote-form .quote-form-title { font-family: var(--sans); font-size: 23px; font-weight: 650; letter-spacing: -.035em; line-height: 1.25; padding: 9px 0 2px }
+.quote-form-title:not(:first-child) { border-top: 1px solid var(--line); margin-top: 9px; padding-top: 20px }
+.storefront input:not([type=checkbox]), .storefront select,.storefront textarea { border: 1px solid #8d95a1; border-radius: 3px; background: var(--cream) }
+.quote-options { border-block: 1px solid var(--line) }
+.quote-options summary { padding: 12px 0; cursor: pointer; font-weight: 650; font-size: 13px }
+.quote-options>div { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; padding: 3px 0 16px }
+.storefront .quote-form .button { margin-top: 4px }
+
+[data-enter-title] { white-space: pre-line }
+@media (prefers-reduced-motion: no-preference) {
+  .sequence-ready:not(.sequence-visible) :is([data-enter-title], [data-enter-body]) { opacity: 0 }
+  .sequence-visible:not(.sequence-immediate) [data-enter-title] { animation: sequence-enter .44s cubic-bezier(.2,.7,.25,1) both }
+  .sequence-visible:not(.sequence-immediate) [data-enter-body] { animation: sequence-enter .46s cubic-bezier(.2,.7,.25,1) .52s both }
+}
+@keyframes sequence-enter {
+  from { opacity: 0; transform: translateY(17px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+
+.material-section { background: var(--surface); padding: clamp(52px, 8vw, 112px) 0 }
+.material-layout { display: grid; grid-template-columns: 1.36fr 1fr; gap: clamp(22px, 4.2vw, 64px); align-items: start }
+.material-heading { grid-column: 1/-1; display: grid; gap: 12px }
+.material-heading h2 { font-size: clamp(52px, 7.4vw, 118px); text-wrap: initial }
+.material-heading p { max-width: 50ch; color: var(--ash) }
+.material-view { min-width: 0 }
+.material-view:nth-of-type(2) { margin-top: clamp(30px, 7vw, 98px) }
+.material-view>a { display: block; aspect-ratio: 1.5; background: var(--paper); overflow: hidden; position: relative; isolation: isolate }
+.material-view img { position: absolute; width: 145%; max-width: none; height: auto; mix-blend-mode: multiply; transition: transform .65s var(--ease) }
+.material-view>a:hover img { transform: scale(1.045) }
+.detail-onyx img { left: -21%; top: -15% }
+.detail-clear img { width: 159%; left: -32%; top: -46% }
+.material-view figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 15px }
+.material-view h3 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.1 }
+.storefront[lang="zh-CN"] .material-view h3 { font: 650 clamp(17px, 2vw, 24px)/1.2 "Microsoft YaHei", sans-serif }
+.material-view p { margin-top: 6px; color: var(--ash); font-size: 14px }
+
+.finish-lineup { margin-top: clamp(28px, 5vw, 72px) }
+.finish-lineup a { display: block }
+.finish-lineup img { width: 100%; height: auto }
+.finish-lineup figcaption, .scene-photo figcaption {
+  padding-block: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ash);
+  font-size: 13px;
+}
+.storefront .stage-section { border-top: 1px solid var(--line) }
+.stage-description { max-width: 32ch; color: var(--ash) }
+.stage-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(20px, 3.2vw, 48px);
+  align-items: start;
+}
+.scene-photo img { width: 100%; height: auto; background: var(--surface) }
+.stage-gallery .scene-photo:nth-child(2) { margin-top: clamp(20px, 5vw, 70px) }
+.stage-gallery .scene-photo:nth-child(2) img { aspect-ratio: 5 / 4; object-fit: cover; object-position: 49% center }
+.stage-section .text-link { margin-top: 18px }
+.setting-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 5vw, 74px);
+  align-items: start;
+  max-width: 1100px;
+  margin-bottom: 40px;
+}
+.setting-overview { max-width: 526px; margin-top: clamp(20px, 5vw, 70px) }
+.reference-sheets { padding-block: clamp(36px, 6vw, 88px); border-bottom: 1px solid var(--line) }
+.reference-sheets h2 { font-size: clamp(34px, 4.5vw, 64px); margin-bottom: 12px }
+.reference-sheets p { max-width: 66ch; color: var(--ash) }
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 32px);
+  margin-top: 24px;
+}
+.reference-grid a { display: block; border: 1px solid var(--line); background: var(--cream) }
+.reference-grid img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: contain; background: var(--surface) }
+.reference-caption { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; font-size: 14px; font-weight: 650 }
+.reference-grid a:hover .reference-caption { color: var(--accent) }
+
+@media (max-width: 900px) {
+  .storefront .nav-shell { grid-template-columns: 44px 1fr auto; gap: 8px }
+  .storefront .menu-button { display: inline-grid }
+  .storefront .center-nav { display: none }
+  .storefront .right-nav { gap: 10px }
+  .storefront .hero { gap: 34px }
+  .storefront .hero h1 { font-size: clamp(64px, 10vw, 95px) }
+}
+@media (max-width: 700px) {
+  .storefront .hero { grid-template-columns: minmax(0, 1fr); gap: 29px; padding-top: 30px }
+  .storefront .hero-copy { grid-area: 1 / 1; padding-bottom: 0 }
+  .storefront .hero h1 { font-size: clamp(62px, 13.6vw, 96px); margin-bottom: 15px }
+  .storefront[lang="zh-CN"] .hero h1 { font-size: clamp(47px, 12vw, 73px); max-width: none }
+  .storefront .hero-media { grid-area: 2 / 1; min-height: clamp(305px, 82vw, 475px) }
+  .storefront .hero-caption { left: 9px; bottom: 9px; padding: 7px 9px; gap: 11px }
+  .storefront .hero-caption strong { font-size: 11px }
+  .storefront .actions { margin-top: 18px; gap: 12px }
+  .storefront .quote-layout { gap: 22px }
+  .quote-aside { display: block }
+  .quote-product { margin-top: 17px }
+  .storefront .quote-form { gap: 14px }
+  .storefront .site-footer { padding-bottom: 55px }
+  .material-layout { grid-template-columns: 1fr; gap: 31px }
+  .material-view:nth-of-type(2) { margin-top: 0 }
+  .stage-gallery, .setting-gallery, .reference-grid { grid-template-columns: minmax(0, 1fr) }
+  .stage-gallery .scene-photo:nth-child(2), .setting-overview { margin-top: 0 }
+  .stage-gallery .scene-photo:nth-child(2) img { aspect-ratio: auto }
+}
+@media (max-width: 480px) {
+  .storefront .nav-shell { padding-inline: 13px; grid-template-columns: 34px minmax(0,1fr) auto }
+  .storefront .wordmark { gap: 5px }
+  .storefront .wordmark span { font-size: 24px }
+  .storefront .wordmark svg { width: 21px; height: 21px }
+  .storefront .menu-button { width: 32px }
+  .storefront .right-nav { gap: 7px }
+  .nav-quote { padding: 0 7px; font-size: 11px }
+  .storefront .catalog-grid .card-media { height: 186px }
+  .storefront .catalog-grid .card-meta { font-size: 9px }
+  .storefront .catalog-grid .card-title h3 { font-size: 19px }
+  .quote-options>div { grid-template-columns: 1fr }
+}
