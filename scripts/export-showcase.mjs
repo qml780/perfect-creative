@@ -1,8 +1,9 @@
 import { spawn } from 'node:child_process';
 import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises';
-import { basename, dirname, resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { chromium } from 'playwright';
 import { products } from '../lib/catalog.mjs';
+import './build-viewer.mjs';
 
 const prefix = process.env.SHOWCASE_BASE_PATH ?? '/perfect-creative';
 if (!/^\/[a-z0-9][a-z0-9-]*$/.test(prefix)) throw new Error('Invalid showcase base path');

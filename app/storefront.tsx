@@ -1,5 +1,6 @@
 import { Assembly, Card, Icon, Photo, type Product, asset } from './components';
 import { FinishLineup, MoreSettings, ReferenceSheets, StageGallery } from './lectern-visuals';
+import { LecternViewer } from './lectern-viewer';
 import { settings } from '@/lib/store.mjs';
 
 const quoteLabel = (zh: boolean) => zh ? '获取批发报价' : 'Get wholesale quote';
@@ -24,7 +25,7 @@ export function HomePage({ zh, items }: {zh: boolean; items: Product[]}) {
         <h1 data-enter-title>{(zh?heroZh:heroEn) || (zh?'亚克力演讲台':'Acrylic\nlecterns.')}</h1>
         <div data-enter-body>
           <p className="hero-description">{zh?'可拆装亚克力演讲台，用于会议、教育与活动空间。支持批量采购和品牌标识定制。':'Knock-down lecterns for conferences, classrooms and live events. Available with custom finishes and branding.'}</p>
-          <div className="actions"><a className="button primary" href={base+'/products'}>{zh?'查看产品':'Explore the collection'}<Icon name="arrow"/></a><a className="hero-custom" href={base+'/customization'}>{zh?'了解定制':'Custom options'}</a></div>
+          <div className="actions"><a className="button primary" href={base+'/products'}>{zh?'查看产品':'Explore the collection'}<Icon name="arrow"/></a><a className="hero-custom" href="#lectern-3d">{zh?'3D 展示':'Explore in 3D'}</a><a className="hero-custom" href={base+'/customization'}>{zh?'了解定制':'Custom options'}</a></div>
         </div>
       </div>
       <div className="hero-media">
@@ -47,6 +48,7 @@ export function HomePage({ zh, items }: {zh: boolean; items: Product[]}) {
       </div>
       <FinishLineup zh={zh}/>
     </section>
+    <LecternViewer zh={zh}/>
     <StageGallery zh={zh}/>
     {materialViews.length>0&&<section id="materials" className="material-section" aria-labelledby="material-title">
       <div className="wrap material-layout">

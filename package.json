@@ -15,12 +15,15 @@
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "db:migrate": "node scripts/manage.mjs migrate",
-    "admin:init": "node scripts/manage.mjs admin"
+    "admin:init": "node scripts/manage.mjs admin",
+    "build:viewer": "node scripts/build-viewer.mjs",
+    "prebuild": "npm run build:viewer"
   },
   "dependencies": {
     "next": "16.4.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "three": "^0.187.0",
     "zod": "4.1.12"
   },
   "devDependencies": {
@@ -28,6 +31,7 @@
     "@types/node": "24.10.0",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "esbuild": "^0.28.2",
     "eslint": "9.39.1",
     "eslint-config-next": "16.4.6",
     "typescript": "5.9.3"

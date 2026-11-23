@@ -18,6 +18,43 @@
   addEventListener('resize', scheduleScroll);
   scheduleScroll();
 
+  const viewer = document.querySelector('[data-lectern-viewer]');
+  if (viewer) {
+    const start = viewer.querySelector('[data-viewer-start]');
+    const status = viewer.querySelector('[data-viewer-status]');
+    let loading = false;
+    let attempts = 0;
+    const load = async () => {
+      if (loading) return;
+      loading = true;
+      start.hidden = true;
+      status.textContent = viewer.dataset.lang==='zh' ? '正在加载 3D…' : 'Loading 3D…';
+      try {
+        const script = [...document.scripts].find(item => new URL(item.src,location.href).pathname.endsWith('/site.js'));
+        const viewerURL = new URL('lectern-viewer.js', script?.src || location.origin+'/site.js');
+        viewerURL.searchParams.set('attempt',String(++attempts));
+        const viewerModule = await import(viewerURL.href);
+        await viewerModule.mountViewer(viewer);
+        status.textContent = '';
+      } catch {
+        loading = false;
+        start.hidden = false;
+        start.textContent = viewer.dataset.lang==='zh' ? '重新加载 3D' : 'Retry 3D view';
+        status.textContent = viewer.dataset.lang==='zh' ? '3D 暂时无法加载，可继续查看产品图片。' : '3D is unavailable. Product photography is shown instead.';
+      }
+    };
+    start.addEventListener('click',load);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          observer.disconnect();
+          load();
+        }
+      },{rootMargin:'150px'});
+      observer.observe(viewer);
+    }
+  }
+
   if ('IntersectionObserver' in window) {
     const sequences = new IntersectionObserver(entries => {
       for (const entry of entries) {

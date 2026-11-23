@@ -278,6 +278,47 @@
 .reference-caption { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; font-size: 14px; font-weight: 650 }
 .reference-grid a:hover .reference-caption { color: var(--accent) }
 
+.viewer-section { border-top: 1px solid var(--line) }
+.storefront .viewer-section h2 { font-size: clamp(43px, 5.7vw, 84px) }
+.viewer-intro { max-width: 34ch; color: var(--ash) }
+.viewer-layout { display: grid; grid-template-columns: minmax(0, 1fr) 285px; border: 1px solid var(--line) }
+.viewer-stage { position: relative; min-width: 0; background: #e9edf2; isolation: isolate }
+.viewer-canvas { height: clamp(450px, 45vw, 620px); width: 100%; outline-offset: -4px; position: relative }
+.viewer-canvas canvas { display: block; width: 100%; height: 100% }
+.viewer-poster { position: absolute; inset: 26px 20% 65px; pointer-events: none }
+.viewer-poster img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply }
+.viewer-poster[hidden] { display: none }
+.viewer-start { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); background: var(--cream); z-index: 1 }
+.viewer-start[hidden] { display: none }
+.viewer-status { position: absolute; top: 45%; left: 8%; right: 8%; text-align: center; background: #ffffffeb; font-size: 13px; pointer-events: none }
+.viewer-status:empty { display: none }
+.viewer-tools { position: absolute; top: 16px; right: 16px; display: flex; background: #fffffff0; border: 1px solid var(--line) }
+.viewer-tools button { background: transparent; border: 0; padding: 8px 13px; min-width: 44px; min-height: 44px; font-size: 13px }
+.viewer-tools button+button { border-left: 1px solid var(--line) }
+.viewer-tools button:hover { color: var(--accent) }
+.viewer-help { position: absolute; inset: auto 15px 16px; text-align: center; font-size: 11px; color: #4d596b; pointer-events: none }
+[data-viewer-state=ready] .viewer-help { color: #d6dfe9 }
+.viewer-settings { padding: 28px 24px; background: var(--cream); display: flex; flex-direction: column; gap: 27px; border-left: 1px solid var(--line) }
+.viewer-settings .kicker { color: var(--ash); font-size: 11px }
+.viewer-materials { padding: 0; border: 0; margin: 0; min-width: 0 }
+.viewer-materials legend { padding: 0; font-size: 14px; font-weight: 650; margin-bottom: 16px }
+.viewer-swatches { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px }
+.viewer-swatches button { display: grid; justify-items: center; gap: 8px; border: 0; background: none; padding: 5px 0; min-height: 66px; font-size: 11px }
+.viewer-swatches i { display: block; width: 30px; height: 30px; border: 1px solid #bcc6d1; border-radius: 50%; box-shadow: inset 0 0 0 3px white }
+.viewer-swatches [aria-pressed=true] i { outline: 2px solid var(--accent); outline-offset: 3px }
+.finish-clear { background: linear-gradient(120deg,#d9e1eb,white 40%,#c3d0df 46%,white 55%,#dde7f0) }
+.finish-frosted { background: #dce2e9 }
+.finish-white { background: #f7f7f7 }
+.finish-black { background: #15181e }
+.viewer-explode { font-size: 14px; gap: 12px }
+.viewer-explode input[type=range] { padding: 0; min-height: 24px; border: 0; background: transparent; accent-color: var(--accent); cursor: pointer }
+.viewer-range-labels { display: flex; justify-content: space-between; font-size: 11px; font-weight: 400; color: var(--ash) }
+.viewer-views { display: flex; flex-wrap: wrap; gap: 7px }
+.viewer-views button { border: 1px solid var(--line); background: transparent; padding: 9px 10px; min-height: 44px; font-size: 12px }
+.viewer-views button:hover { color: var(--accent); border-color: currentColor }
+.viewer-note { color: var(--ash); font-size: 12px; line-height: 1.7; border-top: 1px solid var(--line); padding-top: 18px; margin-top: auto }
+.viewer-layout button:disabled, .viewer-layout input:disabled { opacity: .45; cursor: wait }
+
 @media (max-width: 900px) {
   .storefront .nav-shell { grid-template-columns: 44px 1fr auto; gap: 8px }
   .storefront .menu-button { display: inline-grid }
@@ -285,6 +326,8 @@
   .storefront .right-nav { gap: 10px }
   .storefront .hero { gap: 34px }
   .storefront .hero h1 { font-size: clamp(64px, 10vw, 95px) }
+  .viewer-layout { grid-template-columns: minmax(0, 1fr) 235px }
+  .viewer-settings { padding: 22px 17px }
 }
 @media (max-width: 700px) {
   .storefront .hero { grid-template-columns: minmax(0, 1fr); gap: 29px; padding-top: 30px }
@@ -305,6 +348,15 @@
   .stage-gallery, .setting-gallery, .reference-grid { grid-template-columns: minmax(0, 1fr) }
   .stage-gallery .scene-photo:nth-child(2), .setting-overview { margin-top: 0 }
   .stage-gallery .scene-photo:nth-child(2) img { aspect-ratio: auto }
+  .viewer-layout { grid-template-columns: minmax(0,1fr) }
+  .viewer-settings { border-left: 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 22px 16px; padding: 23px 18px }
+  .viewer-settings>.kicker, .viewer-note { grid-column: 1/-1 }
+  .viewer-canvas { height: 440px }
+  .viewer-views { grid-column: 1/-1 }
+  .viewer-swatches { gap: 1px }
+  .viewer-swatches i { width: 25px; height: 25px }
+  .viewer-tools { top: 10px; right: 10px }
+  .viewer-tools button { padding-inline: 9px }
 }
 @media (max-width: 480px) {
   .storefront .nav-shell { padding-inline: 13px; grid-template-columns: 34px minmax(0,1fr) auto }

@@ -6,9 +6,11 @@
 
 [英文预览](https://qml780.github.io/perfect-creative/) · [中文预览](https://qml780.github.io/perfect-creative/zh/)
 
-GitHub Pages 从 `gh-pages` 分支发布静态展示版，包含产品目录、场景图、拆装交互和滚动动效。询价入口显示展示说明，在线客服和员工后台需要服务端环境。
+GitHub Pages 从 `gh-pages` 分支发布静态展示版，包含产品目录、场景图、拆装交互和滚动动效。首页 3D 展示支持拖动旋转、缩放、四种材质、正背面预设视角和板件展开。模型根据图片制作，供外观和结构展示。询价入口显示展示说明，在线客服和员工后台需要服务端环境。
 
 本机安装依赖与 Microsoft Edge 后，在项目目录运行 `node scripts/export-showcase.mjs` 可重新生成展示版。脚本使用独立的内存示例数据库，并打印 `.data` 下的输出目录。
+
+3D 源文件为 `scripts/lectern-viewer.mjs`，执行 `npm run build:viewer` 打包为自托管浏览器模块。生产构建与展示导出会自动运行此步骤。运行时按视口加载，WebGL 或网络不可用时显示产品照片。
 
 ## 本地启动
 
